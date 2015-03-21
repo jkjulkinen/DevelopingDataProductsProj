@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Developing Data Products Project</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Developing Data Products Project">
+  <meta name="author" content="Jari Kaljunen">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Developing Data Products Project</h1>
+    <h2>Application to compare Expected MPG vs real MPG</h2>
+    <p>Jari Kaljunen<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>MPG as criteria</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Miles Per Gallon (MPG) is important factor when comparing different car models.</p>
+
+<p>However, if you are not interested in small cars, why should you bother to having them at your comparison list?</p>
+
+<p>If you want automatic transmission for your comfort, why should you see MPG for manual cars?</p>
+
+<p>Finally, if the MPG actually goes low when the car gets heavier, which car makes the best of that?</p>
+
+<p>Now you can compare cars by the result versus general expectation, which car makes best towards expectations! </p>
+
+<p>Use the app on <a href="https://jkjulkinen.shinyapps.io/DevelopingDataProductsProj/">https://jkjulkinen.shinyapps.io/DevelopingDataProductsProj/</a> and see the facts.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The source data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The data source:</p>
+
+<ol>
+<li>was extracted from the 1974 Motor Trend US magazine</li>
+<li>comprises fuel consumption</li>
+<li>10 aspects of automobile design and performance</li>
+<li>32 automobiles (1973-74 models)</li>
+<li>Achieved from R Datasets</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The logics</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The basic rule is that when the car gets heavier, the MPG gets lower.</p>
+
+<p>That is a linear model that can be definied with R Language with:</p>
+
+<pre><code class="r">lm(mpg ~ wt, data=mtcars)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ wt, data = mtcars)
+## 
+## Coefficients:
+## (Intercept)           wt  
+##      37.285       -5.344
+</code></pre>
+
+<p>That says us that when weigth gets up with 1000 lb, MPG gets down with -5.3444716.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>What we do</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The basic rule is that when the car gets heavier, the MPG gets lower.</p>
+
+<p>But you are basically interested in cars in some particular weight interval.
+We let you choose the weight interval of your interest and calculate the expectations for that interval.</p>
+
+<p>You can choose if you want to see automatic or manual cars listed.</p>
+
+<p>That car which makes best towards the expectation is shown first at the result list!!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='MPG as criteria'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The source data'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The logics'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='What we do'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
